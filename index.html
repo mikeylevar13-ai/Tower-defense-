@@ -1,0 +1,72 @@
+!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Tower Defense</title>
+
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#070b1f" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <!-- If you later upload icon.png: -->
+  <!-- <link rel="apple-touch-icon" href="icon.png"> -->
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <div class="logo">TD</div>
+      <div>
+        <div class="title">Tower Defense</div>
+        <div class="subtitle">Tap to place a tower. Stop the wave.</div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="pill">Lives: <b id="lives">20</b></div>
+      <div class="pill">Gold: <b id="gold">120</b></div>
+      <div class="pill">Wave: <b id="wave">1</b></div>
+      <button id="pauseBtn" class="btn ghost">Pause</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <canvas id="c"></canvas>
+
+    <div class="hud">
+      <div class="panel">
+        <div class="row">
+          <div class="label">Build</div>
+          <button id="buildBtn" class="btn primary">Tower (50)</button>
+          <button id="startWaveBtn" class="btn">Start Wave</button>
+        </div>
+        <div class="row small">
+          <span id="tip" class="tip">Tap a tile near the path to place. Towers can’t be on the path.</span>
+        </div>
+        <div class="row small">
+          <span class="legend"><span class="dot tower"></span> Tower</span>
+          <span class="legend"><span class="dot path"></span> Path</span>
+          <span class="legend"><span class="dot base"></span> Base</span>
+        </div>
+      </div>
+
+      <div id="overlay" class="overlay hidden">
+        <div class="card">
+          <h1 id="ovTitle">Tower Defense</h1>
+          <p id="ovText" class="muted">
+            Tap “Tower” then tap a tile to place. Hit “Start Wave”.
+          </p>
+          <div class="controls">
+            <button id="resumeBtn" class="btn primary">Resume</button>
+            <button id="restartBtn" class="btn">Restart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
